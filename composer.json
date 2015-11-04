@@ -30,6 +30,9 @@
 	"suggest": {
 	},
 	"extra": {
+		"branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
 	},
-	"minimum-stability": "dev-master"
+	"minimum-stability": "1.0.*"
 }
