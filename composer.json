@@ -1,0 +1,36 @@
+{
+	"name": "ivus/crudadminlte",
+	"type": "project",
+	"description": "CRUD boilerplate based on the AdminLTE theme.",
+	"keywords": [
+		"CRUD"
+	],
+	"license": "MIT",
+	"authors": [{
+		"name":     "Suvi Thammasarn",
+		"email":    "suvi@lab25.com.au",
+		"homepage": "https://github.com/ivus"
+	}],
+	"require": {
+		"php": ">=5.5.9",
+	},
+	"require-dev": {
+		"illuminate/html" : "5.0.*",
+	},
+	"autoload": {
+		"psr-4": {
+      "Ivus\\CrudAdminLte\\": "packages/ivus/crudadminlte/src"
+		}
+	},
+	"autoload-dev": {
+		"psr-0": {
+		}
+	},
+	"suggest": {
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
+}

@@ -1,0 +1,5 @@
+.idea
+show_char_limit.ipr
+show_char_limit.iws
+.DS_Store
+npm-debug.log

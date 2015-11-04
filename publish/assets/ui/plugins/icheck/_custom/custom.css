@@ -1,0 +1,56 @@
+/* iCheck plugin CUSTOM skin
+----------------------------------- */
+.icheckbox_custom,
+.iradio_custom {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 17px;
+    height: 16px;
+    background: url(custom.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_custom {
+    background-position: 0 0;
+}
+    .icheckbox_custom.checked {
+        background-position: -18px 0;
+    }
+    .icheckbox_custom.disabled {
+        background-position: -36px 0;
+        cursor: default;
+    }
+    .icheckbox_custom.checked.disabled {
+        background-position: -54px 0;
+    }
+
+.iradio_custom {
+    background-position: -72px 0;
+}
+    .iradio_custom.checked {
+        background-position: -90px 0;
+    }
+    .iradio_custom.disabled {
+        background-position: -108px 0;
+        cursor: default;
+    }
+    .iradio_custom.checked.disabled {
+        background-position: -126px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_custom,
+    .iradio_custom {
+        background-image: url(custom@2x.png);
+        -webkit-background-size: 144px 19px;
+        background-size: 144px 19px;
+    }
+}
