@@ -19,7 +19,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-      "Ivus\\CrudAdminLte\\": "packages/ivus/crudadminlte/src"
+      "Ivus\\CrudAdminLte\\": ""
 		}
 	},
 	"autoload-dev": {
@@ -29,5 +29,6 @@
 	"suggest": {
 	},
 	"extra": {
-	}
+	},
+	"minimum-stability": "dev"
 }
