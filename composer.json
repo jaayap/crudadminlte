@@ -13,14 +13,14 @@
 	}],
 	"require": {
 		"php" : ">=5.5.9",
-		"laravel/framework" : "5.1.*",
-		"illuminate/html" : "5.0.*"
+		"laravel/framework":"5.1.*",
+		"illuminate/html":"5.0.*"
 	},
 	"require-dev": {
 	},
 	"autoload": {
 		"psr-4": {
-      "Ivus\\CrudAdminLte\\": "src/"
+      "Ivus\\CrudAdminLte\\":"src/"
 		}
 	},
 	"autoload-dev": {
@@ -31,5 +31,5 @@
 	},
 	"extra": {
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev-master"
 }
