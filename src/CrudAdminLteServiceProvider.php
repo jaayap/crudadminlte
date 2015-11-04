@@ -110,6 +110,8 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		$this->_registerUIClass();
 		$this->_registerUtilityClass();
 
+		$this->_registerHtmlFormClass();
+
 	}
 
 		private function _registerCrudAdminLte()
@@ -208,6 +210,20 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
 				$loader->alias('_e', '\Ivus\CrudAdminLte\Http\Facades\UtilityClass');
 			});
+		}
+
+		private function _registerHtmlFormClass()
+		{
+			/*
+	     * Register the service provider for the dependency.
+	     */
+	    $this->app->register('\Illuminate\Html\HtmlServiceProvider');
+	    /*
+	     * Create aliases for the dependency.
+	     */
+	    $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('Form', '\Illuminate\Html\FormFacade');
+			$loader->alias('HTML', '\Illuminate\Html\HtmlFacade');
 		}
 
 }
