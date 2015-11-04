@@ -1,9 +1,9 @@
 {
 	"name": "ivus/crudadminlte",
 	"type": "project",
-	"description": "CRUD boilerplate based on the AdminLTE theme.",
+	"description": "Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.",
 	"keywords": [
-		"CRUD"
+		"framework", "laravel", "AdminLTE", "laravel5", "CRUD", "admin"
 	],
 	"license": "MIT",
 	"authors": [{
@@ -20,7 +20,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-      "Ivus\\CrudAdminLte\\": ""
+      "Ivus\\CrudAdminLte\\": "src/"
 		}
 	},
 	"autoload-dev": {
