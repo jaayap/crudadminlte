@@ -560,4 +560,45 @@ class FormHelperClass {
       return $return;
     }
 
+    private function _fieldduallist($id, $field, $data=NULL) {
+      $attributes = array('class' => '');
+      if (isset($field['options'])) {
+        foreach ($field['options'] as $i=>$v) {
+          $attributes[$i] = $v;
+        };
+      };
+      if (!isset($field['list'])) {
+        return '<strong style="color:red;">OPTIONS MISSING OR INCORRECT</strong>';
+      }
+      else {
+        if (!is_array($field['list'])) { // check for model
+          $_m = explode(':',$field['list']);
+          if ($_m[0] == 'model' && $_m[1] != '') {
+            $_model = 'App\\'.$_m[1];
+            $field['list'] = $_model::selectList();
+          };
+        };
+      };
+      // SCRIPT
+      $script = [
+        'path'  => 'crudadminlte::crud.field.scripts.duallist',
+        'vars'  => [
+          'id'  => $id,
+          'defaults' => $field['defaults']
+        ]
+      ];
+      Session::flash('_scripts', array_add($_script = Session::get('_scripts'), $id, $script));
+      // VIEW
+      $attributes = array(
+        'id' => $id,
+        'name' => $id.'[]',
+        'multiple' => 'multiple'
+      );
+      return View::make('crudadminlte::crud.field.select')
+              ->with('id', $id)
+              ->with('options', $field['list'])
+              ->with('data', $data)
+              ->with('attributes', $attributes);
+    }
+
 }
