@@ -9,12 +9,7 @@ Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.
 
 ### Official Documentation
 
-Documentation for the project can be found on the [CrudAdminLTE website](http://crudadminlte.lab25.com.au).
-
-#### Test pages
-
-[Page 1](page01.md)
-[Page 2](page02.md)
+Documentation for the project can be found on the [CrudAdminLTE website](http://crudadminlte.lab25.com.au/docs).
 
 ### Contributing
 
