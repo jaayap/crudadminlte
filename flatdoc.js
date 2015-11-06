@@ -32,6 +32,8 @@
    */
 
   var Flatdoc = exports.Flatdoc = {};
+  var runnerType = '';
+  var _opts = '';
 
   /**
    * Creates a runner.
@@ -42,6 +44,25 @@
     $(function() { (new Flatdoc.runner(options)).run(); });
   };
 
+
+  /**
+   * Initialize creation of Table of Content menu.
+   */
+  Flatdoc.generateTOC = function() {
+    switch(runnerType) {
+      case 'github':
+        console.log('TODO... github');
+        Flatdoc.githubTOC();
+        break;
+      case 'bitbucket':
+        Flatdoc.bitbucketTOC();
+        break;
+      case 'file':
+        Flatdoc.fileTOC();
+        break;
+    };
+  };
+
   /**
    * File fetcher function.
    *
@@ -50,29 +71,38 @@
    */
 
   Flatdoc.file = function(url) {
-
+    runnerType = 'file';
     url = this.checkUrl(url);
-
-    function loadData(locations, response, callback) {
-      if (locations.length === 0) callback(null, response);
-
-      else $.get(locations.shift())
-        .fail(function(e) {
-          callback(e, null);
-        })
-        .done(function (data) {
-          if (response.length > 0) response += '\n\n';
-          response += data;
-          loadData(locations, response, callback);
-        });
-    }
-
     return function(callback) {
-      loadData(url instanceof Array ?
-        url : [url], '', callback);
+      Flatdoc.fileLoader(url instanceof Array ? url : [url], '', callback);
     };
-
   };
+
+  Flatdoc.fileTOC = function() {
+    var _callback = function(err, markdown) {
+      if (err) {
+        console.error('[Flatdoc] fetching Markdown data failed.', err);
+        return;
+      };
+      var data = Flatdoc.parser.parse(markdown);
+      Transformer.createTocPanel(data);
+      // $('#cbp-spmenu-s1').html( data.content.find('>*') );
+    };
+    Flatdoc.fileLoader(['TOC.md'], '', _callback);
+  };
+
+  Flatdoc.fileLoader = function(locations, response, callback) {
+    if (locations.length === 0) callback(null, response);
+    else $.get(locations.shift())
+      .fail(function(e) {
+        callback(e, null);
+      })
+      .done(function (data) {
+        if (response.length > 0) response += '\n\n';
+        response += data;
+        Flatdoc.fileLoader(locations, response, callback);
+      });
+  }
 
   /**
    * Github fetcher.
@@ -88,6 +118,7 @@
    * See: http://developer.github.com/v3/repos/contents/
    */
   Flatdoc.github = function(opts) {
+    runnerType = 'github';
     if (typeof opts === 'string') {
       opts = {
         repo: arguments[0],
@@ -140,19 +171,21 @@
    * Default to Mercurial because Git users historically tend to use GitHub
    */
   Flatdoc.bitbucket = function(opts) {
+    runnerType = 'bitbucket';
+
     if (typeof opts === 'string') {
       opts = {
         repo: arguments[0],
         filepath: arguments[1],
         branch: arguments[2]
       };
+      _opts = opts;
     }
     if (!opts.filepath) opts.filepath = 'readme.md';
-    if (!opts.branch) opts.branch = 'default';
-
+    if (!opts.branch) opts.branch = 'master';
     var file = this.checkUrl(opts.filepath);
     var url = 'https://bitbucket.org/api/1.0/repositories/'+opts.repo+'/src/'+opts.branch+'/'+file;
-
+    // var url = 'https://bitbucket.org/api/1.0/repositories/'+opts.repo+'/src/'+opts.branch+'/'+opts.filepath;
     return function(callback) {
       $.ajax({
         url: url,
@@ -166,7 +199,30 @@
         }
       });
     };
+  };
 
+  Flatdoc.bitbucketTOC = function() {
+    var url = 'https://bitbucket.org/api/1.0/repositories/'+_opts.repo+'/src/'+_opts.branch+'/TOC.md';
+    var _callback = function(err, markdown) {
+      if (err) {
+        console.error('[Flatdoc] fetching Markdown data failed.', err);
+        return;
+      };
+      var data = Flatdoc.parser.parse(markdown);
+      Transformer.createTocPanel(data);
+      // $('#cbp-spmenu-s1').html( data.content.find('>*') );
+    };
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      error: function(xhr, status, error) {
+        alert(error);
+      },
+      success: function(response) {
+        var markdown = response.data;
+        _callback(null, markdown);
+      }
+    });
   };
 
   /**
@@ -180,7 +236,7 @@
     if ( localStorage.getItem('gh-pages') ) {
       // CHECK FOR LOCAL STORAGE FIRST
       url = localStorage.getItem('gh-pages');
-      var page = url.replace('.md','').toLowerCase();
+      var page = url.replace('.md','');
       history.pushState(page, '', '?'+page+'\/');
       $(window).scrollTop();
     } else {
@@ -367,6 +423,29 @@
     }
   };
 
+
+
+
+
+  Transformer.createTocPanel = function (data) {
+
+    var menuLeft = $('#cbp-spmenu-s1');
+		var showLeftPush = $('#open-button');
+    var body = $('body');
+
+    menuLeft.html( data.content.find('>*') );
+		showLeftPush.bind('click', function(e) {
+      e.preventDefault;
+      showLeftPush.toggleClass('active');
+      menuLeft.toggleClass('cbp-spmenu-open');
+      body.toggleClass('cbp-spmenu-push-toright');
+		});
+
+  };
+
+
+
+
   /**
    * Syntax highlighters.
    *
@@ -530,7 +609,7 @@
       if (id) {
         var el = document.getElementById(id);
         if (el) el.scrollIntoView(true);
-      }
+      };
       $(doc.root).trigger('flatdoc:ready');
     });
   };
@@ -541,10 +620,13 @@
 
   Runner.prototype.applyData = function(data) {
     var elements = this;
-
     elements.el('title').html(data.title);
     elements.el('content').html(data.content.find('>*'));
     elements.el('menu').html(MenuView(data.menu));
+
+    // RUN TOC GENERATOR
+    Flatdoc.generateTOC();
+
   };
 
   /**
