@@ -915,11 +915,11 @@ code .comment {
 }
 .menu-button::before {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-  bottom: 0.5em;
-  left: 0.5em;
-  background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #373a47 60%, transparent 60%, transparent 80%, #373a47 80%);
+  top: 0.75em;
+  right: 0.75em;
+  bottom: 0.75em;
+  left: 0.75em;
+  background: linear-gradient(#9090aa 20%, transparent 20%, transparent 40%, #9090aa 40%, #9090aa 60%, transparent 60%, transparent 80%, #9090aa 80%);
   content: '';
 }
 .menu-button:hover {
@@ -934,10 +934,10 @@ code .comment {
     left:0;
   }
   .menu-button::before {
-    top: 0.75em;
-    right: 0.7em;
-    bottom: 0.7em;
-    left: 0.5em;
+    top: 0.85em;
+    right: 0.85em;
+    bottom: 0.85em;
+    left: 0.85em;
   }
 
 }
@@ -949,29 +949,76 @@ code .comment {
   border-right: 1px solid #dfe2e7;
 }
 
-/*
-.cbp-spmenu h3 {
-	color: #afdefa;
-	font-size: 1.9em;
-	padding: 20px;
-	margin: 0;
-	font-weight: 300;
-	background: #0d77b6;
-}
-.cbp-spmenu a {
-	display: block;
-	color: #fff;
-	font-size: 1.1em;
-	font-weight: 300;
-}
+  .cbp-spmenu h1 {
+    background: #f3f6fb;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    border-bottom: solid 1px #dfe2e7;
+    padding: 15px 15px 15px 30px;
+    zoom: 1;
+    line-height: 20px;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: bold;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 13px;
+    color: #9090aa;
+  }
+  .cbp-spmenu ul,
+  .cbp-spmenu ol {
+    padding: 20px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+    .cbp-spmenu ul li,
+    .cbp-spmenu ol li {
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      padding: 0px;
+      margin: 0px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+      .cbp-spmenu ul li > a,
+      .cbp-spmenu ol li > a {
+      	display: block;
+        font-family: 'Titillium Web', sans-serif;
+        text-transform: uppercase;
+        color: #9090aa;
+        font-size: 0.9em;
+      }
+
+      .cbp-spmenu ul li > ul,
+      .cbp-spmenu ul li > ol,
+      .cbp-spmenu ol li > ul,
+      .cbp-spmenu ol li > ol {
+        padding: 0 0 0 10px;
+        margin-bottom: 5px;
+      }
+        .cbp-spmenu ul li > ul > li,
+        .cbp-spmenu ul li > ol > li,
+        .cbp-spmenu ol li > ul > li,
+        .cbp-spmenu ol li > ol > li {
+          border: none;
+        }
+          .cbp-spmenu ul li > ul > li > a,
+          .cbp-spmenu ul li > ol > li  a,
+          .cbp-spmenu ol li > ul > li > a,
+          .cbp-spmenu ol li > ol > li > a {
+            font-weight: normal !important;
+            font-family: inherit;
+            text-transform: none;
+          }
+
 .cbp-spmenu a:hover {
-	background: #258ecd;
+  color: #2badad;
 }
 .cbp-spmenu a:active {
-	background: #afdefa;
-	color: #47a3da;
+	color: #228a8a;
 }
-*/
 
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
@@ -979,10 +1026,6 @@ code .comment {
 	height: 100%;
 	top: 0;
 	z-index: 1000;
-}
-.cbp-spmenu-vertical a {
-	border-bottom: 1px solid #258ecd;
-	padding: 1em;
 }
 
 /* Vertical menu that slides from the left or right */

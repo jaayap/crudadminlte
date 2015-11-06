@@ -81,7 +81,7 @@
   Flatdoc.fileTOC = function() {
     var _callback = function(err, markdown) {
       if (err) {
-        console.error('[Flatdoc] fetching Markdown data failed.', err);
+        console.error('[Flatdoc] fetching TOC data failed.', err);
         return;
       };
       var data = Flatdoc.parser.parse(markdown);
@@ -205,7 +205,7 @@
     var url = 'https://bitbucket.org/api/1.0/repositories/'+_opts.repo+'/src/'+_opts.branch+'/TOC.md';
     var _callback = function(err, markdown) {
       if (err) {
-        console.error('[Flatdoc] fetching Markdown data failed.', err);
+        console.error('[Flatdoc] fetching TOC data failed.', err);
         return;
       };
       var data = Flatdoc.parser.parse(markdown);
@@ -415,7 +415,7 @@
    * It leaves `code` and `pre` blocks alone.
    */
 
-  Transformer.smartquotes = function ($content) {
+    Transformer.smartquotes = function ($content) {
     var nodes = getTextNodesIn($content), len = nodes.length;
     for (var i=0; i<len; i++) {
       var node = nodes[i];
@@ -423,28 +423,37 @@
     }
   };
 
+    Transformer.createTocPanel = function (data) {
 
+      var menuLeft = $('#cbp-spmenu-s1');
+  		var showLeftPush = $('#open-button');
+      var body = $('body');
 
+      showLeftPush.hide();
 
+      if (data.content) {
+        showLeftPush.show();
+        menuLeft.html( data.content.find('>*') );
+    		showLeftPush.bind('click', function(e) {
+          e.preventDefault;
+          showLeftPush.toggleClass('active');
+          menuLeft.toggleClass('cbp-spmenu-open');
+          body.toggleClass('cbp-spmenu-push-toright');
+    		});
 
-  Transformer.createTocPanel = function (data) {
+        menuLeft.find('a').bind('click', function(e) {
+          var val = $(this).attr('href');
+          if (val && !val.match(/^http([s]?):\/\/.*/)) {
+            localStorage.setItem('gh-pages', val);
+            location.reload();
+            return false;
+          };
+          return true;
+        });
 
-    var menuLeft = $('#cbp-spmenu-s1');
-		var showLeftPush = $('#open-button');
-    var body = $('body');
+      };
 
-    menuLeft.html( data.content.find('>*') );
-		showLeftPush.bind('click', function(e) {
-      e.preventDefault;
-      showLeftPush.toggleClass('active');
-      menuLeft.toggleClass('cbp-spmenu-open');
-      body.toggleClass('cbp-spmenu-push-toright');
-		});
-
-  };
-
-
-
+    };
 
   /**
    * Syntax highlighters.
