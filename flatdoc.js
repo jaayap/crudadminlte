@@ -96,9 +96,10 @@
     }
     var url;
     if (opts.filepath) {
-      url = this.checkUrl('https://api.github.com/repos/'+opts.repo+'/contents/'+opts.filepath);
+      var file = this.checkUrl(opts.filepath);
+      url = 'https://api.github.com/repos/'+opts.repo+'/contents/'+file;
     } else {
-      url = this.checkUrl('https://api.github.com/repos/'+opts.repo+'/readme');
+      url = 'https://api.github.com/repos/'+opts.repo+'/readme';
     };
     var data = {};
     if (opts.token) {
@@ -149,7 +150,8 @@
     if (!opts.filepath) opts.filepath = 'readme.md';
     if (!opts.branch) opts.branch = 'default';
 
-    var url = this.checkUrl('https://bitbucket.org/api/1.0/repositories/'+opts.repo+'/src/'+opts.branch+'/'+opts.filepath);
+    var file = this.checkUrl(opts.filepath);
+    var url = 'https://bitbucket.org/api/1.0/repositories/'+opts.repo+'/src/'+opts.branch+'/'+file;
 
     return function(callback) {
       $.ajax({
