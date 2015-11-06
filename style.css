@@ -1039,8 +1039,12 @@ code .comment {
 /* Push classes applied to the body */
 .cbp-spmenu-push {
 	overflow-x: hidden;
-	position: relative;
 	left: 0;
+}
+@media (min-width: 480px) {
+  .cbp-spmenu-push {
+  	position: relative;
+  }
 }
 .cbp-spmenu-push-toright {
 	left: 230px;
