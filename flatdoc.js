@@ -185,9 +185,12 @@
       // CHECK QUERY STRING
       var query  = window.location.href.slice( window.location.href.indexOf('?') + 1 );
       var hash   = window.location.hash;
-      page = query.replace('/'+hash,'');
+      var page = query.replace('/'+hash,'');
       url = page+'.md';
+      console.log(query);
+      console.log(hash);
       console.log(page);
+      console.log(url);
       // localStorage.setItem('gh-pages', url);
     };
     // window.localStorage.clear();
