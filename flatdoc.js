@@ -187,7 +187,8 @@
       var hash   = window.location.hash;
       page = query.replace('/'+hash,'');
       url = page+'.md';
-      localStorage.setItem('gh-pages', url);
+      console.log(url);
+      // localStorage.setItem('gh-pages', url);
     };
     // window.localStorage.clear();
     return url;
