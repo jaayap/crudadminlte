@@ -11,3 +11,14 @@ Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.
 [Page 2](page02.md)<br>
 
 [Forms/Page 2](forms/page01.md)
+
+```php
+<?php
+
+  $test = [
+    'foo' => 'bar',
+    'hoo' => 'har'
+  ];
+
+?>
+```
