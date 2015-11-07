@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Admin\ACL;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\ACL;
 
 use App\User;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ use Kodeine\Acl\Models\Eloquent\Role;
 
 use Route;
 
-class ACLController extends \Ivus\CrudAdminLte\Http\Controllers\Admin\AdminController {
+class ACLController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
 
 	/**
 	 * Create a new controller instance.

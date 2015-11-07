@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\ViewComposers;
+<?php namespace Lab25\CrudAdminLte\Http\ViewComposers;
 
 use Illuminate\Contracts\View\View;
 use Session;

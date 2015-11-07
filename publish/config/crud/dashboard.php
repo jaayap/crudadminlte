@@ -11,7 +11,7 @@ return [
 
   'route' => [
     'title' => 'Dashboard',
-    'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Admin\\HomeController@index',
+    'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Admin\\HomeController@index',
     'icon'  => 'fa fa-dashboard',
   ]
 

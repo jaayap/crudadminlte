@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;

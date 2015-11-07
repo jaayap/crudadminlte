@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Admin\System;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\System;
 
 use App\User;
 use App\Http\Controllers\Controller;

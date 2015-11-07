@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte;
+<?php namespace Lab25\CrudAdminLte;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
@@ -48,31 +48,34 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		// PUBLISH CONFIG
 		$srcFld		= __DIR__.'/../publish/';
 		$destFld	= 'vendor/CrudAdminLte/';
+		// $this->publishes([
+		// 	// Config files for CRUD JS scripts and CSS source files
+		// 	// __DIR__.'/config/adminltesource.php' 		=> config_path($destFld.'adminltesource.php'),
+		// 	$srcFld.'config/adminltesource.php' 				=> config_path($destFld.'adminltesource.php'),
+		// 	// Config files for CRUD router scaffold
+		// 	$srcFld.'config/crud/accesscontrol.php'			=> config_path($destFld.'crud/accesscontrol.php'),
+		// 	$srcFld.'config/crud/dashboard.php' 				=> config_path($destFld.'crud/dashboard.php'),
+		// 	$srcFld.'config/crud/settings.php' 					=> config_path($destFld.'crud/settings.php'),
+		// 	$srcFld.'config/crud/signout.php' 					=> config_path($destFld.'crud/signout.php'),
+		// 	// JS default setting for ACE Editor
+		// 	$srcFld.'config/defaults/aceeditor.php'			=> config_path($destFld.'defaults/aceeditor.php'),
+		// 	// Config files for Form/View scaffold
+		// 	$srcFld.'config/admin/acl/users.php'				=> config_path($destFld.'admin/acl/users.php'),
+		// 	$srcFld.'config/admin/acl/userstabs.php'		=> config_path($destFld.'admin/acl/userstabs.php'),
+		// ]);
 		$this->publishes([
-			// Config files for CRUD JS scripts and CSS source files
-			// __DIR__.'/config/adminltesource.php' 		=> config_path($destFld.'adminltesource.php'),
-			$srcFld.'config/adminltesource.php' 				=> config_path($destFld.'adminltesource.php'),
-			// Config files for CRUD router scaffold
-			$srcFld.'config/crud/accesscontrol.php'			=> config_path($destFld.'crud/accesscontrol.php'),
-			$srcFld.'config/crud/dashboard.php' 				=> config_path($destFld.'crud/dashboard.php'),
-			$srcFld.'config/crud/settings.php' 					=> config_path($destFld.'crud/settings.php'),
-			$srcFld.'config/crud/signout.php' 					=> config_path($destFld.'crud/signout.php'),
-			// JS default setting for ACE Editor
-			$srcFld.'config/defaults/aceeditor.php'			=> config_path($destFld.'defaults/aceeditor.php'),
-			// Config files for Form/View scaffold
-			$srcFld.'config/admin/acl/users.php'				=> config_path($destFld.'admin/acl/users.php'),
-			$srcFld.'config/admin/acl/userstabs.php'		=> config_path($destFld.'admin/acl/userstabs.php'),
-		]);
+      $srcFld.'config' 	=> config_path($destFld)
+    ], 'config');
 		// $this->mergeConfigFrom(
     //   __DIR__.'/config/adminltesource.php', 'adminltesource'
     // );
 
 		// PUBLISH ASSETS
 		$this->publishes([
-      $srcFld.'assets' 		=> public_path(strToLower($destFld)),
+      $srcFld.'assets' 		=> public_path(strToLower($destFld))
     ], 'assets');
 		$this->publishes([
-      $srcFld.'profile' 	=> public_path('profile'),
+      $srcFld.'profile' 	=> public_path('profile')
     ], 'profile');
 
 		// EXTEND BLADE VIEW
@@ -93,7 +96,7 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 	 */
 	public function setupRoutes(Router $router)
 	{
-		$router->group(['namespace' => 'Ivus\CrudAdminLte\Http\Controllers'], function($router) {
+		$router->group(['namespace' => 'Lab25\CrudAdminLte\Http\Controllers'], function($router) {
 			require __DIR__.'/Http/routes.php';
 		});
 	}
@@ -125,12 +128,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['adminlte'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\AdminLTEClass;
+				return new \Lab25\CrudAdminLte\Http\Services\AdminLTEClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('aLTE', '\Ivus\CrudAdminLte\Http\Facades\AdminLTEClass');
+				$loader->alias('aLTE', '\Lab25\CrudAdminLte\Http\Facades\AdminLTEClass');
 			});
 		}
 
@@ -138,12 +141,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['formhelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\FormHelperClass;
+				return new \Lab25\CrudAdminLte\Http\Services\FormHelperClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('FormHelper', '\Ivus\CrudAdminLte\Http\Facades\FormHelperClass');
+				$loader->alias('FormHelper', '\Lab25\CrudAdminLte\Http\Facades\FormHelperClass');
 			});
 		}
 
@@ -151,12 +154,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['fieldhelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\FieldHelperClass;
+				return new \Lab25\CrudAdminLte\Http\Services\FieldHelperClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('DrawField', '\Ivus\CrudAdminLte\Http\Facades\FieldHelperClass');
+				$loader->alias('DrawField', '\Lab25\CrudAdminLte\Http\Facades\FieldHelperClass');
 			});
 		}
 
@@ -164,12 +167,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['msghelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\MsgClass;
+				return new \Lab25\CrudAdminLte\Http\Services\MsgClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('Msg', '\Ivus\CrudAdminLte\Http\Facades\MsgClass');
+				$loader->alias('Msg', '\Lab25\CrudAdminLte\Http\Facades\MsgClass');
 			});
 		}
 
@@ -177,12 +180,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['sitehelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\SiteHelperClass;
+				return new \Lab25\CrudAdminLte\Http\Services\SiteHelperClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('SiteHelper', '\Ivus\CrudAdminLte\Http\Facades\SiteHelperClass');
+				$loader->alias('SiteHelper', '\Lab25\CrudAdminLte\Http\Facades\SiteHelperClass');
 			});
 		}
 
@@ -190,12 +193,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['uihelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\UIClass;
+				return new \Lab25\CrudAdminLte\Http\Services\UIClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('UI', '\Ivus\CrudAdminLte\Http\Facades\UIClass');
+				$loader->alias('UI', '\Lab25\CrudAdminLte\Http\Facades\UIClass');
 			});
 		}
 
@@ -203,12 +206,12 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		{
 			// Register 'underlyingclass' instance container to our UnderlyingClass object
 			$this->app['utilityhelper'] = $this->app->share(function($app) {
-				return new \Ivus\CrudAdminLte\Http\Services\UtilityClass;
+				return new \Lab25\CrudAdminLte\Http\Services\UtilityClass;
 			});
 			// Shortcut so developers don't need to add an Alias in app/config/app.php
 			$this->app->booting(function() {
 				$loader		= \Illuminate\Foundation\AliasLoader::getInstance();
-				$loader->alias('_e', '\Ivus\CrudAdminLte\Http\Facades\UtilityClass');
+				$loader->alias('_e', '\Lab25\CrudAdminLte\Http\Facades\UtilityClass');
 			});
 		}
 

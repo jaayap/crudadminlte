@@ -11,7 +11,7 @@ return [
 
   'route' => [
     'title' => 'Sign out',
-    'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Auth\\AuthController@getLogout',
+    'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Auth\\AuthController@getLogout',
     'icon'  => 'fa fa-power-off text-danger',
   ]
 

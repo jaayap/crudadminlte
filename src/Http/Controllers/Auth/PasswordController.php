@@ -1,11 +1,11 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Auth;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-use Ivus\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
+use Lab25\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
 
 class PasswordController extends CrudAdminLteController {
 

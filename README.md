@@ -2,10 +2,10 @@
 
 Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.
 
-[![Latest Stable Version](https://poser.pugx.org/ivus/crudadminlte/v/stable)](https://packagist.org/packages/ivus/crudadminlte)
-[![Total Downloads](https://poser.pugx.org/ivus/crudadminlte/downloads)](https://packagist.org/packages/ivus/crudadminlte)
-[![Latest Unstable Version](https://poser.pugx.org/ivus/crudadminlte/v/unstable)](https://packagist.org/packages/ivus/crudadminlte)
-[![License](https://poser.pugx.org/ivus/crudadminlte/license)](https://packagist.org/packages/ivus/crudadminlte)
+[![Latest Stable Version](https://poser.pugx.org/lab25/crudadminlte/v/stable)](https://packagist.org/packages/lab25/crudadminlte)
+[![Total Downloads](https://poser.pugx.org/lab25/crudadminlte/downloads)](https://packagist.org/packages/lab25/crudadminlte)
+[![Latest Unstable Version](https://poser.pugx.org/lab25/crudadminlte/v/unstable)](https://packagist.org/packages/lab25/crudadminlte)
+[![License](https://poser.pugx.org/lab25/crudadminlte/license)](https://packagist.org/packages/lab25/crudadminlte)
 
 ### Official Documentation
 

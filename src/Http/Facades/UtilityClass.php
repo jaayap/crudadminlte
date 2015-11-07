@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Facades;
+<?php namespace Lab25\CrudAdminLte\Http\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

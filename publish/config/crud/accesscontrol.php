@@ -17,19 +17,19 @@ return [
     'sub'  => [
       [
         'title' => 'Users',
-        'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\UserController@index',
+        'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\UserController@index',
         'icon'  => 'fa fa-user',
       ],[
         'title' => 'Users Tab',
-        'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\UsertabsController@index',
+        'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\UsertabsController@index',
         'icon'  => 'fa fa-user',
       ],[
         'title' => 'Groups/Roles',
-        'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\RolesController@index',
+        'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\RolesController@index',
         'icon'  => '',
       ],[
         'title' => 'Permissions',
-        'link'  => '\\Ivus\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\PermissionsController@index',
+        'link'  => '\\Lab25\\CrudAdminLte\\Http\\Controllers\\Admin\\ACL\\PermissionsController@index',
       ],
     ],
 

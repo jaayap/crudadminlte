@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Admin;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;

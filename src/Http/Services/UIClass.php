@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Services;
+<?php namespace Lab25\CrudAdminLte\Http\Services;
 
 use Auth, Session, Request, Route, Form, View;
 

@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Requests\Auth;
+<?php namespace Lab25\CrudAdminLte\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 

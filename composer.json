@@ -1,5 +1,5 @@
 {
-	"name": "ivus/crudadminlte",
+	"name": "lab25/crudadminlte",
 	"type": "project",
 	"description": "Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.",
 	"keywords": [
@@ -9,7 +9,7 @@
 	"authors": [{
 		"name":     "Suvi Thammasarn",
 		"email":    "suvi@lab25.com.au",
-		"homepage": "https://github.com/ivus"
+		"homepage": "https://github.com/lab25"
 	}],
 	"require": {
 		"php" : ">=5.5.9",
@@ -20,7 +20,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-      "Ivus\\CrudAdminLte\\":"src/"
+      "Lab25\\CrudAdminLte\\":"src/"
 		}
 	},
 	"autoload-dev": {

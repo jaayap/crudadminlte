@@ -1,14 +1,14 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Auth;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
-use Ivus\CrudAdminLte\Http\Requests\Auth\LoginRequest;
-use Ivus\CrudAdminLte\Http\Requests\Auth\RegisterRequest;
+use Lab25\CrudAdminLte\Http\Requests\Auth\LoginRequest;
+use Lab25\CrudAdminLte\Http\Requests\Auth\RegisterRequest;
 
 use Illuminate\Cookie\CookieJar;
-use Ivus\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
+use Lab25\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
 
 class AuthController extends CrudAdminLteController {
 
@@ -85,8 +85,8 @@ class AuthController extends CrudAdminLteController {
 				'email'	=> $this->auth->user()->email,
 			);
 			$cookieJar->queue('lastLogin', $_u, (60 * 24 * 365));//, '/', url());
-			return redirect()->intended('\Ivus\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
-			//return redirect()->action('\Ivus\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
+			return redirect()->intended('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
+			//return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
 		}
 
 		return redirect('/auth/login')->withErrors([
@@ -101,7 +101,7 @@ class AuthController extends CrudAdminLteController {
 	 */
 	public function getLogout() {
 		$this->auth->logout();
-		return redirect()->action('\Ivus\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
+		return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
 	}
 
 	/**
@@ -111,7 +111,7 @@ class AuthController extends CrudAdminLteController {
 	 */
 	public function getReset(CookieJar $cookieJar) {
 		$cookie = $cookieJar->forget('lastLogin');
-		return redirect()->action('\Ivus\CrudAdminLte\Http\Controllers\Admin\HomeController@index')
+		return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index')
 			->withCookie($cookie);
 	}
 

@@ -1,4 +1,4 @@
-<?php namespace Ivus\CrudAdminLte\Http\Controllers\Admin\ACL;
+<?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\ACL;
 
 use App\User;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ use Kodeine\Acl\Models\Eloquent\Role;
 
 use Illuminate\Http\Request, Validator, Route, Input;
 
-class UserController extends \Ivus\CrudAdminLte\Http\Controllers\Admin\AdminController {
+class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
 
 	/**
 	 * Create a new controller instance.
@@ -82,7 +82,7 @@ class UserController extends \Ivus\CrudAdminLte\Http\Controllers\Admin\AdminCont
 
 	public function store(Request $request) {
 
-		\_e::prex( "Ivus\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@store()" );
+		\_e::prex( "Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@store()" );
 
 		$v = \UI::getValidation('NEW');
 		$validator = Validator::make($request->all(), $v['validation'], $v['messages']);
@@ -113,7 +113,7 @@ class UserController extends \Ivus\CrudAdminLte\Http\Controllers\Admin\AdminCont
 	public function update($id, Request $request) {
 
 		\_e::prex( Input::all() );
-		\_e::prex( "Ivus\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@update()" );
+		\_e::prex( "Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@update()" );
 
 		$v = \UI::getValidation('UPDATE',$id);
 		$validator = Validator::make($request->all(), $v['validation'], $v['messages']);
