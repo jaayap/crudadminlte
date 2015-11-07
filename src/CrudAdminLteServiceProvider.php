@@ -48,21 +48,6 @@ class CrudAdminLteServiceProvider extends ServiceProvider {
 		// PUBLISH CONFIG
 		$srcFld		= __DIR__.'/../publish/';
 		$destFld	= 'vendor/CrudAdminLte/';
-		// $this->publishes([
-		// 	// Config files for CRUD JS scripts and CSS source files
-		// 	// __DIR__.'/config/adminltesource.php' 		=> config_path($destFld.'adminltesource.php'),
-		// 	$srcFld.'config/adminltesource.php' 				=> config_path($destFld.'adminltesource.php'),
-		// 	// Config files for CRUD router scaffold
-		// 	$srcFld.'config/crud/accesscontrol.php'			=> config_path($destFld.'crud/accesscontrol.php'),
-		// 	$srcFld.'config/crud/dashboard.php' 				=> config_path($destFld.'crud/dashboard.php'),
-		// 	$srcFld.'config/crud/settings.php' 					=> config_path($destFld.'crud/settings.php'),
-		// 	$srcFld.'config/crud/signout.php' 					=> config_path($destFld.'crud/signout.php'),
-		// 	// JS default setting for ACE Editor
-		// 	$srcFld.'config/defaults/aceeditor.php'			=> config_path($destFld.'defaults/aceeditor.php'),
-		// 	// Config files for Form/View scaffold
-		// 	$srcFld.'config/admin/acl/users.php'				=> config_path($destFld.'admin/acl/users.php'),
-		// 	$srcFld.'config/admin/acl/userstabs.php'		=> config_path($destFld.'admin/acl/userstabs.php'),
-		// ]);
 		$this->publishes([
       $srcFld.'config' 	=> config_path($destFld)
     ], 'config');
