@@ -98,6 +98,31 @@ return [
 
           ],
         ],
+
+        'active' => [
+          'label' => 'Active',
+          'type' => 'SELECT',
+          'class' => '',
+          'typeahead' => FALSE,
+          'list'  => [
+            '0' => 'Inactive',
+            '1' => 'Active',
+          ],
+          //'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
+          'options' => [
+            'placeholder' => '- Select Option -',
+            //'required' => 'required',
+            //'readonly' => 'readonly',
+            //'disabled' => 'disabled',
+            'size' => 10,
+            // 'multiple' => 'multiple',
+            //'style' => '',
+          ],
+          'validation' => '',
+          'errormessage' => [
+          ],
+        ],
+
       ]
     ],
     [
@@ -168,6 +193,53 @@ return [
     [
       'tab' => 'Other Elements',
       'fields' => [
+
+        'file' => [
+          'label' => 'FILE',
+          'type' => 'FILE',
+          'class' => '',
+          'options' => [
+            //'required' => 'required',
+            //'disabled' => 'disabled',
+            //'autocomplete' => 'off',
+          ],
+          'validation' => '',
+          'errormessage' => [
+          ],
+        ],
+        'selectrange' => [
+          'label' => 'SELECTRANGE',
+          'type' => 'SELECTRANGE',
+          'class' => '',
+          'range' => [1977,2015],
+          'step' => 3, //TODO
+          'options' => [
+            //'required' => 'required',
+            //'readonly' => 'readonly',
+            //'disabled' => 'disabled',
+            //'autocomplete' => 'off',
+            'style' => 'width:150px;',
+          ],
+          'validation' => '',
+          'errormessage' => [
+          ],
+        ],
+        'selectmonth' => [
+          'label' => 'SELECTMONTH',
+          'type' => 'SELECTMONTH',
+          'class' => '',
+          'options' => [
+            //'required' => 'required',
+            //'readonly' => 'readonly',
+            //'disabled' => 'disabled',
+            //'autocomplete' => 'off',
+            'style' => 'width:150px;',
+          ],
+          'validation' => '',
+          'errormessage' => [
+          ],
+        ],
+
         'textarea' => [
           'label' => 'TEXTAREA',
           'type' => 'TEXTAREA',

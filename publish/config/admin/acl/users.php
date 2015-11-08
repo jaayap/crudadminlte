@@ -280,19 +280,14 @@ return [
         'errormessage' => [
         ],
       ],
-      'select' => [
+      'active' => [
         'label' => 'SELECT',
         'type' => 'SELECT',
         'class' => '',
-        'typeahead' => true,
+        'typeahead' => FALSE,
         'list'  => [
-          'a' => 'A',
-          'b' => 'B',
-          'c' => 'C',
-          'd' => 'D',
-          'e' => 'E',
-          'f' => 'F',
-          'g' => 'G',
+          '0' => 'Inactive',
+          '1' => 'Active',
         ],
         //'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
         'options' => [
@@ -301,7 +296,7 @@ return [
           //'readonly' => 'readonly',
           //'disabled' => 'disabled',
           'size' => 10,
-          'multiple' => 'multiple',
+          // 'multiple' => 'multiple',
           //'style' => '',
         ],
         'validation' => '',

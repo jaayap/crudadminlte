@@ -177,8 +177,15 @@ class FormHelperClass {
         .( ($field['class']) ? $field['class'] : '' );
       if (!isset($field['options']['multiple'])) {
         if (isset($field['options']['placeholder']) && $field['options']['placeholder'] != '') {
-          array_unshift($field['list'], $field['options']['placeholder']);
+          // array_unshift($field['list'], $field['options']['placeholder']);
           array_forget($field, 'options.size');
+          $_opt = array(
+            '' => $field['options']['placeholder']
+          );
+          foreach($field['list'] as $i=>$v) {
+            $_opt[$i] = $v;
+          };
+          $field['list'] = $_opt;
         };
       } else {
         if (isset($field['typeahead']) && $field['typeahead'] != '' && $field['typeahead']) {

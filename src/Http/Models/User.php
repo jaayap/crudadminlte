@@ -26,7 +26,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
    *
    * @var array
    */
-  protected $fillable = ['name', 'email', 'password'];
+  protected $fillable = ['name', 'email', 'password', 'active'];
 
   /**
    * The attributes excluded from the model's JSON form.
@@ -37,11 +37,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
   /*---------------------------------------------------------------------------------*/
   public function setPasswordAttribute($value) {
-    $this->attributes['password'] = bcrypt($value);
+    if ($value != NULL || $value != '') {
+      $this->attributes['password'] = bcrypt($value);
+    };
     // $this->attributes['password'] = Hash::make($value);
   }
-  // public function setNameAttribute($value) {
-  //   $this->attributes['name'] = strtolower($value);
+  // public function setRememberTokenAttribute($value) {
+  //   $this->attributes['remember_token'] = str_random(10);
   // }
 
 	/**

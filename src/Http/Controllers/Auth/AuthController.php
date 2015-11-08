@@ -79,7 +79,9 @@ class AuthController extends CrudAdminLteController {
 	 */
 	public function postLogin(LoginRequest $request, CookieJar $cookieJar) {
 
-		if ($this->auth->attempt($request->only('email', 'password'))) {
+		$login = $request->only('email', 'password');
+		$login['active'] = 1; // ENSURE USER IS ACTIVE
+		if ($this->auth->attempt( $login, true )) {
 			$_u = array(
 				'name'	=> $this->auth->user()->name,
 				'email'	=> $this->auth->user()->email,
@@ -87,7 +89,7 @@ class AuthController extends CrudAdminLteController {
 			$cookieJar->queue('lastLogin', $_u, (60 * 24 * 365));//, '/', url());
 			return redirect()->intended('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
 			//return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
-		}
+		};
 
 		return redirect('/auth/login')->withErrors([
 			'email' => 'The credentials you entered did not match our records. Try again?',
