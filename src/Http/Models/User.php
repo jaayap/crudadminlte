@@ -8,10 +8,10 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-use DB;
+use DB, Hash;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
-  
+
   use Authenticatable, Authorizable, CanResetPassword;
 
   /**
@@ -34,6 +34,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
    * @var array
    */
   protected $hidden = ['password', 'remember_token'];
+
+  /*---------------------------------------------------------------------------------*/
+  public function setPasswordAttribute($value) {
+    $this->attributes['password'] = bcrypt($value);
+    // $this->attributes['password'] = Hash::make($value);
+  }
+  // public function setNameAttribute($value) {
+  //   $this->attributes['name'] = strtolower($value);
+  // }
 
 	/**
 	 * Helper class to return SELECT LIST OPTIONS from model

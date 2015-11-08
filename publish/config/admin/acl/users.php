@@ -68,7 +68,7 @@ return [
             //'autocomplete' => 'off',
             //'style' => '',
           ],
-          'validation' => 'required|alpha_dash|size:10',
+          'validation' => 'required|unique:users|max:255',
           'errormessage' => [
           ],
         ],[
@@ -90,7 +90,7 @@ return [
           //'autocomplete' => 'off',
           //'style' => '',
         ],
-        'validation' => 'required|email',
+        'validation' => 'required|email|max:255|unique:users,email,$id',
         'errormessage' => [
           'required' => 'XXXXXX',
           'email' => 'YYYYY',
@@ -111,7 +111,7 @@ return [
               //'autocomplete' => 'off',
               //'style' => '',
             ],
-            'validation' => 'required|confirmed',
+            'validation' => 'onExists|required|confirmed',
             'errormessage' => [
               'required' => 'XXXXXX',
               'confirmed' => 'YYYYY',
@@ -294,7 +294,7 @@ return [
           'f' => 'F',
           'g' => 'G',
         ],
-        //'list'  => "model:User",
+        //'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
         'options' => [
           'placeholder' => '- Select Option -',
           //'required' => 'required',
@@ -532,7 +532,7 @@ return [
         //   'b' => 'Option B',
         //   'c' => 'Option C',
         // ],
-        'list' => "model:User",
+        'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',

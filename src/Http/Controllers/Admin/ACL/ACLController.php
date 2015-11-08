@@ -16,11 +16,11 @@ class ACLController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCont
 	 *
 	 * @return void
 	 */
-	public function __construct() {
-		$this->middleware('auth');
-		$this->config = \aLTE::listLayout();
-		$this->init = \UI::initAdmin();
-	}
+	// public function __construct() {
+	// 	$this->middleware('auth');
+	// 	$this->config = \aLTE::listLayout();
+	// 	$this->init = \UI::initAdmin();
+	// }
 
 	public function index() {
 		return redirect()->action('Admin\ACL\ACLController@users');

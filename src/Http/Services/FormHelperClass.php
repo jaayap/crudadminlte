@@ -574,7 +574,7 @@ class FormHelperClass {
         if (!is_array($field['list'])) { // check for model
           $_m = explode(':',$field['list']);
           if ($_m[0] == 'model' && $_m[1] != '') {
-            $_model = 'App\\'.$_m[1];
+            $_model = $_m[1];
             $field['list'] = $_model::selectList();
           };
         };

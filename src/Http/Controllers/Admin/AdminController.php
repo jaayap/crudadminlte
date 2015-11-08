@@ -16,6 +16,8 @@ abstract class AdminController extends BaseController {
 	 */
 	public function __construct() {
 		$this->middleware('auth');
+		$this->config	= \aLTE::listLayout();
+		$this->init		= \UI::initAdmin();
 	}
 
 	/**

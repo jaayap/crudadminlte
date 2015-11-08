@@ -5,6 +5,8 @@ use Auth, Session, Request, Route, Form, View;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
+use Input;
+
 class UIClass {
 
   public function initAdmin($url = NULL) {
@@ -488,7 +490,8 @@ class UIClass {
         $return = $this->__iterateValidationFields($fields, $type, $id);
       };
     };
-    return $this->__formatValidation($return);
+
+    return $this->__formatValidation(array_filter($return));
   }
 
     private function __iterateValidationFields($fields, $type, $id=NULL) {
@@ -499,25 +502,32 @@ class UIClass {
           // FIELDSET
           foreach ($v as $_v) {
             foreach ($_v as $name=>$field) {
-              $validation = $this->__setValidationField($this->_getConfigType($type, $field), $id);
+              $validation = $this->__setValidationField($this->_getConfigType($type, $field), $name, $id);
               if (isset($validation)) { $return[$name] = $validation; };
             };
           };
         } else {
           // NORMAL
-          $validation = $this->__setValidationField($this->_getConfigType($type, $v), $id);
+          $validation = $this->__setValidationField($this->_getConfigType($type, $v), $n, $id);
           if (isset($validation)) { $return[$n] = $validation; };
         };
       };
       return $return;
     }
 
-    private function __setValidationField($field, $id=NULL) {
+    private function __setValidationField($field, $input, $id=NULL) {
       if (isset($field['validation']) && $field['validation'] != '') {
         $return = array();
+        if (is_numeric(strrpos( strtolower($field['validation']),'onexists'))) {
+          if ( Input::get($input) == "" || Input::get($input) === NULL) {
+            return $return;
+          } else {
+            $field['validation'] = str_replace('onExists|','', str_replace('onexists|','', $field['validation']) );
+          };
+        };
         $return['validation'] = $field['validation'];
-        if (strrpos( $field['validation'],'unique:')) {
-          if (strrpos( $field['validation'],'$id')) {
+        if (is_numeric(strrpos( $field['validation'],'unique:'))) {
+          if (is_numeric(strrpos( $field['validation'],'$id'))) {
             $return['validation'] = str_replace('$id',$id,$field['validation']);
           };
         };

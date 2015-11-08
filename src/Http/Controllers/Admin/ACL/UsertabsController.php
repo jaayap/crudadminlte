@@ -1,6 +1,6 @@
 <?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\ACL;
 
-use App\User;
+use Lab25\CrudAdminLte\Http\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
@@ -16,11 +16,11 @@ class UsertabsController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\Admi
 	 *
 	 * @return void
 	 */
-	public function __construct() {
-		$this->middleware('auth');
-		$this->config	= \aLTE::listLayout();
-		$this->init		= \UI::initAdmin();
-	}
+	// public function __construct() {
+	// 	$this->middleware('auth');
+	// 	$this->config	= \aLTE::listLayout();
+	// 	$this->init		= \UI::initAdmin();
+	// }
 
 	public function index() {
 

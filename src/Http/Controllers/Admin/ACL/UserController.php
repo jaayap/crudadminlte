@@ -1,6 +1,6 @@
 <?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\ACL;
 
-use App\User;
+use Lab25\CrudAdminLte\Http\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
@@ -10,17 +10,6 @@ use Kodeine\Acl\Models\Eloquent\Role;
 use Illuminate\Http\Request, Validator, Route, Input;
 
 class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
-
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		$this->middleware('auth');
-		$this->config	= \aLTE::listLayout();
-		$this->init		= \UI::initAdmin();
-	}
 
 	public function index() {
 
@@ -112,20 +101,23 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 
 	public function update($id, Request $request) {
 
-		\_e::prex( Input::all() );
-		\_e::prex( "Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@update()" );
+		// \_e::prex( $this );
+		// \_e::prex( "Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@update()" );
 
 		$v = \UI::getValidation('UPDATE',$id);
 		$validator = Validator::make($request->all(), $v['validation'], $v['messages']);
+
 		if ($validator->fails())
-        return \Redirect::back()->withErrors($validator)->withInput();
+      return \Redirect::back()->withErrors($validator)->withInput();
 
 		$input = $request->except(['_token']);
 		$user = User::findOrFail($id);
 		$user->fill($input);
 
+		// \_e::prex( $user );
+
 		if ($user->save()) {
-			return \Redirect::action('Admin\ACL\UserController@index');
+			return \Redirect::action('\Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@index');
 		} else {
 			die('HANDLE ERROR HERE...');
 		};

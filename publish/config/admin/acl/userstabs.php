@@ -262,7 +262,7 @@ return [
           //   'b' => 'Option B',
           //   'c' => 'Option C',
           // ],
-          // 'list' => "model:User",
+          // 'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
           'options' => [
             //'required' => 'required',
             //'readonly' => 'readonly',
@@ -283,7 +283,7 @@ return [
             'b' => 'Option B',
             'c' => 'Option C',
           ],
-          // 'list' => "model:User",
+          // 'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
           'options' => [
             //'required' => 'required',
             //'readonly' => 'readonly',
@@ -418,7 +418,7 @@ return [
             'b' => 'Option B',
             'c' => 'Option C',
           ],
-          // 'list' => "model:User",
+          // 'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
           'options' => [
             //'required' => 'required',
             //'readonly' => 'readonly',
@@ -462,7 +462,7 @@ return [
           //   'b' => 'Option B',
           //   'c' => 'Option C',
           // ],
-          'list' => "model:User",
+          'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
           'options' => [
             //'required' => 'required',
             //'readonly' => 'readonly',
