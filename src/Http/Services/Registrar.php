@@ -1,6 +1,6 @@
 <?php namespace Lab25\CrudAdminLte\Http\Services;
 
-use App\User;
+use Lab25\CrudAdminLte\Http\Models\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

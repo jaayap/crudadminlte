@@ -1,6 +1,6 @@
 <?php namespace Lab25\CrudAdminLte\Http\Controllers\Admin\ACL;
 
-use App\User;
+use Lab25\CrudAdminLte\Http\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
