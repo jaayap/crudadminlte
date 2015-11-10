@@ -239,7 +239,25 @@ return [
           'errormessage' => [
           ],
         ],
-
+        'countrylist' => [
+          'label' => 'COUNTRY LIST',
+          'type' => 'COUNTRYLIST',
+          'defaults' => [
+            'value' => 'iso3',        // 'short_name', 'long_name', 'iso2', 'iso3', 'numcode'
+            'label' => 'short_name',  // 'short_name', 'long_name', 'iso2', 'iso3', 'numcode'
+          ],
+          'options' => [
+            'placeholder' => '- Select -',
+            //'required' => 'required',
+            //'readonly' => 'readonly',
+            //'disabled' => 'disabled',
+            //'autocomplete' => 'off',
+            'style' => 'width:250px;',
+          ],
+          'validation' => '',
+          'errormessage' => [
+          ],
+        ],
         'textarea' => [
           'label' => 'TEXTAREA',
           'type' => 'TEXTAREA',

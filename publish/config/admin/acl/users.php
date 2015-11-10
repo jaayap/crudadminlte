@@ -166,7 +166,9 @@ return [
       'textlimit' => [
         'label' => 'TEXTLIMIT',
         'type' => 'TEXTLIMIT',
-        'limit' => 5000,
+
+                'limit' => 5000,
+
         'class' => '',
         'options' => [
           'placeholder' => 'Alpha-numeric only',
@@ -219,9 +221,9 @@ return [
         'label' => 'TELEPHONE',
         'type' => 'TELEPHONE',
         'class' => '',
-        'mask' => '+99 9 9999 9999', // international
-        // 'mask' => '(99) 9999 9999', // local
-        // 'mask' => '9999 999 999', // mobile
+            'mask' => '+99 9 9999 9999', // international
+            // 'mask' => '(99) 9999 9999', // local
+            // 'mask' => '9999 999 999', // mobile
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -284,12 +286,12 @@ return [
         'label' => 'SELECT',
         'type' => 'SELECT',
         'class' => '',
-        'typeahead' => FALSE,
-        'list'  => [
-          '0' => 'Inactive',
-          '1' => 'Active',
-        ],
-        //'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
+              'typeahead' => FALSE,
+              'list'  => [
+                '0' => 'Inactive',
+                '1' => 'Active',
+              ],
+              //'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
         'options' => [
           'placeholder' => '- Select Option -',
           //'required' => 'required',
@@ -307,8 +309,8 @@ return [
         'label' => 'SELECTRANGE',
         'type' => 'SELECTRANGE',
         'class' => '',
-        'range' => [1977,2015],
-        'step' => 3, //TODO
+              'range' => [1977,2015],
+              'step' => 3, //TODO
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -340,7 +342,7 @@ return [
         'label' => 'DATE',
         'type' => 'DATE',
         'class' => '',
-        'format' => 'dd-mm-yyyy', // dd = Day, mm = Month, yyyy = Year
+              'format' => 'dd-mm-yyyy', // dd = Day, mm = Month, yyyy = Year
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -357,8 +359,8 @@ return [
         'label' => 'TIME',
         'type' => 'TIME',
         'class' => '',
-        'showseconds' => true,
-        'format' => '24HR', // 12HR/24HR
+              'showseconds' => true,
+              'format' => '24HR', // 12HR/24HR
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -376,10 +378,10 @@ return [
         'label' => 'DATERANGE',
         'type' => 'DATERANGE',
         'class' => '',
-        //'dateformat' => 'dd-mm-yyyy', // dd = Day, mm = Month, yyyy = Year
-        'showtime' => true,
-        'timeformat' => '24HR', // 12HR/24HR
-        'position' => 'LEFT', // left/right
+              //'dateformat' => 'dd-mm-yyyy', // dd = Day, mm = Month, yyyy = Year
+              'showtime' => true,
+              'timeformat' => '24HR', // 12HR/24HR
+              'position' => 'LEFT', // left/right
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -409,7 +411,7 @@ return [
       'codeblock' => [
         'label' => 'CODEBLOCK',
         'type' => 'CODEBLOCK',
-        'lang'  => 'PHP',
+              'lang'  => 'PHP',
         'class' => '',
         'options' => [
           //'required' => 'required',
@@ -424,13 +426,13 @@ return [
       'checkbox' => [
         'label' => 'CHECKBOX',
         'type' => 'CHECKBOX',
-        'list' => [1=>'Option Z'],
-        // 'list' => [
-        //   'a' => 'Option A',
-        //   'b' => 'Option B',
-        //   'c' => 'Option C',
-        // ],
-        // 'list' => "model:User",
+              'list' => [1=>'Option Z'],
+              // 'list' => [
+              //   'a' => 'Option A',
+              //   'b' => 'Option B',
+              //   'c' => 'Option C',
+              // ],
+              // 'list' => "model:User",
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -445,13 +447,13 @@ return [
       'radio' => [
         'label' => 'RADIO',
         'type' => 'RADIO',
-        // 'list' => [1=>'Option Z'],
-        'list' => [
-          'a' => 'Option A',
-          'b' => 'Option B',
-          'c' => 'Option C',
-        ],
-        // 'list' => "model:User",
+              // 'list' => [1=>'Option Z'],
+              'list' => [
+                'a' => 'Option A',
+                'b' => 'Option B',
+                'c' => 'Option C',
+              ],
+              // 'list' => "model:User",
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -477,13 +479,13 @@ return [
           //   'color' => 'danger',   // 'primary', 'info', 'success', 'warning', 'danger', 'default'
           // ],
         ],
-        // 'list' => [1=>'Option Z'],
-        'list' => [
-          'a' => 'Option A',
-          'b' => 'Option B',
-          'c' => 'Option C',
-        ],
-        // 'list' => "model:User",
+              // 'list' => [1=>'Option Z'],
+              'list' => [
+                'a' => 'Option A',
+                'b' => 'Option B',
+                'c' => 'Option C',
+              ],
+              // 'list' => "model:User",
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -521,13 +523,13 @@ return [
           // 'filterOnValues' => FALSE, // set this to true to filter the options according to their values and not their HTML contents.
 
         ],
-        // 'list' => [1=>'Option Z'],
-        // 'list' => [
-        //   'a' => 'Option A',
-        //   'b' => 'Option B',
-        //   'c' => 'Option C',
-        // ],
-        'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
+              // 'list' => [1=>'Option Z'],
+              // 'list' => [
+              //   'a' => 'Option A',
+              //   'b' => 'Option B',
+              //   'c' => 'Option C',
+              // ],
+              'list' => "model:Lab25\CrudAdminLte\Http\Models\User",
         'options' => [
           //'required' => 'required',
           //'readonly' => 'readonly',
@@ -539,6 +541,26 @@ return [
         'errormessage' => [
         ],
       ],
+      'countrylist' => [
+        'label' => 'COUNTRY LIST',
+        'type' => 'COUNTRYLIST',
+        'defaults' => [
+          'value' => 'iso3',        // 'short_name', 'long_name', 'iso2', 'iso3', 'numcode'
+          'label' => 'short_name',  // 'short_name', 'long_name', 'iso2', 'iso3', 'numcode'
+        ],
+        'options' => [
+          'placeholder' => '- Select -',
+          //'required' => 'required',
+          //'readonly' => 'readonly',
+          //'disabled' => 'disabled',
+          //'autocomplete' => 'off',
+          'style' => 'width:250px;',
+        ],
+        'validation' => '',
+        'errormessage' => [
+        ],
+      ],
+
 
       //  ---------------------------------------------------------------------
       //
@@ -547,9 +569,6 @@ return [
 
       //  - PLUPLOAD (AJAX UPLOADER) : MAYBE
       //  - jCrop
-      //  - Multi-select Pick List (Flip flop)
-
-      //  - Error states...
 
     ]
   ],

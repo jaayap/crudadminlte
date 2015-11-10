@@ -246,6 +246,35 @@ class FormHelperClass {
         return View::make('crudadminlte::crud.field.select', compact('id', 'options', 'data', 'attributes'));
     	}
 
+    private function _fieldcountrylist($id, $field, $data=NULL) {
+      $countryList  = config('vendor.CrudAdminLte.defaults.countrylist');
+      if (
+        !isset($field['defaults']) ||
+        (!isset($field['defaults']['value']) || $field['defaults']['value'] == '') ||
+        (!isset($field['defaults']['label']) || $field['defaults']['label'] == '')
+      ) {
+        return '<strong style="color:red;">DEFAULT ARGUMENT MISSING OR INCORRECT</strong>';
+      };
+      if (isset($field['options']['placeholder']) && $field['options']['placeholder'] != '') {
+        $options[''] = $field['options']['placeholder'];
+      };
+      $_opt = array_pluck($countryList, $field['defaults']['label'], $field['defaults']['value']);
+      $_opt = array_except($_opt, '');
+      $options = array_merge( $options, $_opt );
+      $attributes = array('id' => $id);
+      $attributes['class'] = $this->default_style.' select2 '.( isset($field['class']) ? $field['class'] : '' );
+      if (isset($field['options'])) {
+        foreach ($field['options'] as $i=>$v) {
+          $attributes[$i] = $v;
+        };
+      };
+      return View::make('crudadminlte::crud.field.select')
+              ->with('id', $id)
+              ->with('options', $options)
+              ->with('data', $data)
+              ->with('attributes', $attributes);
+    }
+
     private function _fieldCheckBox($id, $field, $data=NULL) {
       $attributes = array('class' => '_icheck');
       if (isset($field['options'])) {
