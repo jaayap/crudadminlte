@@ -410,12 +410,16 @@ class UIClass {
         // check if this is a FIELDSET
         if (is_numeric($i)) {
           // FIELDSET
-          foreach ($v as $_v) {
-            $return .= '<fieldset>';
-            foreach ($_v as $id=>$field) {
-              $return .= $this->_setUpField($id, $this->_getConfigType($type, $field), $data[$id], $errors);
+          if (!is_array($v) && strtolower($v) === 'break') {
+            $return .= '<hr/>';
+          } else {
+            foreach ($v as $_v) {
+              $return .= '<fieldset>';
+              foreach ($_v as $id=>$field) {
+                $return .= $this->_setUpField($id, $this->_getConfigType($type, $field), $data[$id], $errors);
+              };
+              $return .= '</fieldset>';
             };
-            $return .= '</fieldset>';
           };
         } else {
           // NORMAL
@@ -500,10 +504,12 @@ class UIClass {
         // check if this is a FIELDSET
         if (is_numeric($n)) {
           // FIELDSET
-          foreach ($v as $_v) {
-            foreach ($_v as $name=>$field) {
-              $validation = $this->__setValidationField($this->_getConfigType($type, $field), $name, $id);
-              if (isset($validation)) { $return[$name] = $validation; };
+          if (is_array($v)) {
+            foreach ($v as $_v) {
+              foreach ($_v as $name=>$field) {
+                $validation = $this->__setValidationField($this->_getConfigType($type, $field), $name, $id);
+                if (isset($validation)) { $return[$name] = $validation; };
+              };
             };
           };
         } else {

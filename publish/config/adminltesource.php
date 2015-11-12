@@ -62,7 +62,7 @@ return [
     // Char Limiter - v1.2.0
     'charlimit'       => 'vendor/crudadminlte/ui/vendors/jquery.limit-1.2.source.js',
     // Float Table Head - v1.2.3
-    'floatthead'      => 'vendor/crudadminlte/ui/vendors/jquery.floatThead.min.js',
+    'floatthead'      => 'vendor/crudadminlte/ui/vendors/floatThead.1.3.1/jquery.floatThead.min.js',
     // Bootstrap Duallistbox - v3.0.5
     'duallistbox'     => 'vendor/crudadminlte/ui/vendors/bootstrap-duallistbox-3.0.5/jquery.bootstrap-duallistbox.min.js',
     // Bootstrap Switch - v3.3.2

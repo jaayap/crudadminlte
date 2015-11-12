@@ -276,6 +276,9 @@ class FormHelperClass {
     }
 
     private function _fieldCheckBox($id, $field, $data=NULL) {
+      if ( sizeof($field['list']) == 1 && isset($field['options']['required'])) {
+        array_forget($field, 'options.required');
+      };
       $attributes = array('class' => '_icheck');
       if (isset($field['options'])) {
         foreach ($field['options'] as $i=>$v) {
@@ -305,7 +308,7 @@ class FormHelperClass {
                         'id'    => $id.'_'.$x,
                         'text'  => $v
                       ])
-                      ->with('data', ($data != '' || $data != null) ? 1 : 0)
+                      ->with('data', $data)
                       ->with('attributes', $attributes);
           $x++;
         };
@@ -319,7 +322,7 @@ class FormHelperClass {
                     'id'    => $id,
                     'text'  => $v
                   ])
-                  ->with('data', ($data != '' || $data != null) ? 1 : 0)
+                  ->with('data', $data)
                   ->with('attributes', $attributes);
         };
       };
@@ -327,6 +330,9 @@ class FormHelperClass {
     }
 
     private function _fieldRadio($id, $field, $data=NULL) {
+      if ( sizeof($field['list']) == 1 && isset($field['options']['required'])) {
+        array_forget($field, 'options.required');
+      };
       $attributes = array('class' => '_icheck');
       if (isset($field['options'])) {
         foreach ($field['options'] as $i=>$v) {
@@ -356,7 +362,7 @@ class FormHelperClass {
                         'id'    => $id.'_'.$x,
                         'text'  => $v
                       ])
-                      ->with('data', ($data != '' || $data != null) ? 1 : 0)
+                      ->with('data', $data)
                       ->with('attributes', $attributes);
           $x++;
         };
@@ -370,7 +376,7 @@ class FormHelperClass {
                     'id'    => $id,
                     'text'  => $v
                   ])
-                  ->with('data', ($data != '' || $data != null) ? 1 : 0)
+                  ->with('data', $data)
                   ->with('attributes', $attributes);
         };
       };

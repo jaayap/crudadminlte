@@ -98,7 +98,7 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 	public function update($id) {
 
 		// $v = \UI::getValidation('UPDATE');
-		// \_e::prex( $v );
+		// \_e::prex( \Input::all() );
 
 		$user = User::findOrFail($id);
 		if ($user->updateUniques()) {

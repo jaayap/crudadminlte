@@ -58,6 +58,7 @@
 
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">
+				{!! \Msg::getHtml() !!}
 				@yield('content')
 			</div><!-- /.content-wrapper -->
 

@@ -46,19 +46,31 @@ class User extends Ardent implements AuthenticatableContract, AuthorizableContra
   public $forceEntityHydrationFromInput = TRUE;
   public static $throwOnFind = true;
 
-  public static $rules = array(
-    // 'name'                  => 'required|between:3,80|alpha_dash',
-    // 'email'                 => 'required|between:5,64|email|unique:users',
-    // 'password'              => 'required|min:6|confirmed',
-    // 'password_confirmation' => 'required|min:6',
-  );
-  public static $customMessages = array(
-    // 'required' => 'The :attribute field is required.',
-  );
+  public static $rules = array();
+  public static $customMessages = array();
+
+  // public function beforeValidate() {
+  //   $v = \UI::getValidation();
+  //   // \_e::prex( $v );
+  //
+  //   static::$rules = $v['validation'];
+  //   static::$customMessages = $v['messages'];
+  //
+  //   // \_e::pre( self::$rules );
+  //   // die('beforeValidate()');
+  //
+  //   return true;
+  // }
+
+  // public function afterValidate() {
+  //   if ( sizeof($this->errors()) > 0 ) {
+  //     return back()->withErrors($this->errors());
+  //   };
+  //   return true;
+  // }
 
   /**
-   * Before successfully saving the space, we might want to action specific events
-   * depending on the status of the space.
+   * Triggered before saving the model.
    *
    * @return true
    */
@@ -93,25 +105,22 @@ class User extends Ardent implements AuthenticatableContract, AuthorizableContra
     return parent::save($rules, $customMessages, $options, $beforeSave, $afterSave);
   }
 
-  // public function beforeValidate() {
-  //   $v = \UI::getValidation();
-  //   // \_e::prex( $v );
-  //
-  //   static::$rules = $v['validation'];
-  //   static::$customMessages = $v['messages'];
-  //
-  //   // \_e::pre( self::$rules );
-  //   // die('beforeValidate()');
-  //
-  //   return true;
-  // }
+  /**
+   * Triggered after successfully saving the model.
+   *
+   * @return true
+   */
+  public function afterSave() {
 
-  // public function afterValidate() {
-  //   if ( sizeof($this->errors()) > 0 ) {
-  //     return back()->withErrors($this->errors());
-  //   };
-  //   return true;
-  // }
+    \Msg::add('success', $this->name.'.');
+
+    // if there's a new password, hash it
+    // if ($this->isDirty('password')) {
+    //   $this->password = Hash::make($this->password);
+    // };
+
+    return true;
+  }
 
   /*---------------------------------------------------------------------------------*/
   public function setPasswordAttribute($value) {
