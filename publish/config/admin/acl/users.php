@@ -70,6 +70,9 @@ return [
           ],
           'validation' => 'required|unique:users|max:255',
           'errormessage' => [
+            'required' => 'XXXXXX',
+            'max' => '255',
+            'unique' => 'unique NAME... DUDE!',
           ],
         ],[
           'label' => 'Username',
@@ -91,9 +94,11 @@ return [
           //'style' => '',
         ],
         'validation' => 'required|email|max:255|unique:users,email,$id',
+        // 'validation' => 'required|email|max:255|unique:users',
         'errormessage' => [
           'required' => 'XXXXXX',
           'email' => 'YYYYY',
+          'unique' => 'unique DUDE!',
         ],
       ],
       [
@@ -113,8 +118,8 @@ return [
             ],
             'validation' => 'onExists|required|confirmed',
             'errormessage' => [
-              'required' => 'XXXXXX',
-              'confirmed' => 'YYYYY',
+              // 'required' => 'Password required...',
+              // 'confirmed' => 'YYYYY',
             ],
           ],
           'password_confirmation' => [

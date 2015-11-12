@@ -4,9 +4,6 @@ use Lab25\CrudAdminLte\Http\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
-use Kodeine\Acl\Models\Eloquent\Permission;
-use Kodeine\Acl\Models\Eloquent\Role;
-
 use Illuminate\Http\Request, Validator, Route, Input;
 
 class UsertabsController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {

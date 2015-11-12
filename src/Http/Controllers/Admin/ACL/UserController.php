@@ -4,10 +4,7 @@ use Lab25\CrudAdminLte\Http\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
-use Kodeine\Acl\Models\Eloquent\Permission;
-use Kodeine\Acl\Models\Eloquent\Role;
-
-use Illuminate\Http\Request, Validator, Route, Input;
+use Request, Validator, Route, Input;
 
 class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
 
@@ -17,9 +14,9 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 		$_z = $this->init;
 		// \_e::prex($_z->pagination['perPage']);
 
-		$users = User::raw('where 1=1');
-
+		$users = User::where('id','>',0);
 		/*
+							raw('where 1=1');
 							->where('user_type','=','REGISTERED')
 							->where('parent_id','=',0)
 							->whereIn('active',array(0,1,-1));
@@ -47,11 +44,10 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 		$users		= $users->orderBy($_z->orderby,$_z->dir);
 
 		$data = [
-			'current' => Route::getCurrentRoute()->getAction(),
-			'total' => $users->count(),
-			'data' => $users->paginate($_z->pagination['perPage'])
+			'current'	=> Route::getCurrentRoute()->getAction(),
+			'total'		=> $users->count(),
+			'data'		=> $users->paginate($_z->pagination['perPage'])
 		];
-
 		//\_e::sql();
 		//\_e::prex($users);
 		//\_e::prex($data);
@@ -99,29 +95,36 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 						->with('_data', $data);
 	}
 
-	public function update($id, Request $request) {
+	public function update($id) {
 
-		// \_e::prex( $this );
-		// \_e::prex( "Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@update()" );
+		// $v = \UI::getValidation('UPDATE');
+		// \_e::prex( $v );
 
-		$v = \UI::getValidation('UPDATE',$id);
-		$validator = Validator::make($request->all(), $v['validation'], $v['messages']);
-
-		if ($validator->fails())
-      return \Redirect::back()->withErrors($validator)->withInput();
-
-		$input = $request->except(['_token']);
 		$user = User::findOrFail($id);
-		$user->fill($input);
-
-		// \_e::prex( $user );
-
-		if ($user->save()) {
-			return \Redirect::action('\Lab25\CrudAdminLte\Http\Controllers\Admin\ACL\UserController@index');
+		if ($user->updateUniques()) {
+			return redirect()->route('crud_admin_manageusers');
 		} else {
-			die('HANDLE ERROR HERE...');
+			return redirect()->back()->withErrors($user->errors());
 		};
-
 	}
+
+	// public function updateBK($id, Request $request) {
+	// 	$v = \UI::getValidation('UPDATE',$id);
+	// 	$validator = Validator::make($request->all(), $v['validation'], $v['messages']);
+	// 	if ($validator->fails())
+  //     return \Redirect::back()->withErrors($validator)->withInput();
+	//
+	// 	$input = $request->except(['_token']);
+	// 	$input = $request->all();
+	// 	$user = User::findOrFail($id);
+	// 	$user->fill($input);
+	//
+	// 	if ($user->save()) {
+	// 		return redirect()->route('crud_admin_manageusers');
+	// 	} else {
+	// 		die('SOMETHING WENT HORRIBLY WRONG!!!');
+	// 	};
+	//
+	// }
 
 }

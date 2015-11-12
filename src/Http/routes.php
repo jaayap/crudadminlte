@@ -33,7 +33,11 @@
 						'prefix' => 'users',
 					], function() {
 
-						Route::get('', 'UserController@index');
+						// Route::get('', 'UserController@index');
+            Route::get('', [
+              'uses'  => 'UserController@index',
+              'as'    => 'crud_admin_manageusers'
+        		]);
 
 						Route::get('add', 'UserController@add');
 						Route::post('save', 'UserController@store');

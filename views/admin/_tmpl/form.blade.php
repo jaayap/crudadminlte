@@ -35,7 +35,7 @@
 		@if (count($errors) > 0)
 		<div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<h4><i class="icon fa fa-ban"></i> Form Error!</h4>
+			<h4><i class="icon fa fa-ban"></i> WARNING : Form validation error!</h4>
 			<p>Please check the form and try again.</p>
 			<?php /*
 			<p><ul>
