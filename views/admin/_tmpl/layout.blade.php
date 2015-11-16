@@ -69,6 +69,8 @@
 	@include('crudadminlte::admin._tmpl.required.scripts')
 	@yield('_scripts')
 
+{!! \UI::_renderScripts($_sysScripts) !!}
+
 {!! \UI::_renderScripts($_scripts) !!}
 
 </body>

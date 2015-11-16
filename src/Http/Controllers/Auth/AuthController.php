@@ -8,9 +8,9 @@ use Lab25\CrudAdminLte\Http\Requests\Auth\LoginRequest;
 use Lab25\CrudAdminLte\Http\Requests\Auth\RegisterRequest;
 
 use Illuminate\Cookie\CookieJar;
-use Lab25\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
+// use Lab25\CrudAdminLte\Http\Controllers\CrudAdminLteController as CrudAdminLteController;
 
-class AuthController extends CrudAdminLteController {
+class AuthController extends Controller {
 
 	/**
 	 * the model instance
@@ -36,7 +36,6 @@ class AuthController extends CrudAdminLteController {
 	) {
 		$this->user = $user;
 		$this->auth = $auth;
-
 		$this->middleware('guest', ['except' => ['getLogout']]);
 	}
 
@@ -103,7 +102,8 @@ class AuthController extends CrudAdminLteController {
 	 */
 	public function getLogout() {
 		$this->auth->logout();
-		return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
+		return redirect()->route('crud_admin');
+		// return redirect()->action('\Lab25\CrudAdminLte\Http\Controllers\Admin\HomeController@index');
 	}
 
 	/**

@@ -13,11 +13,11 @@ class UsertabsController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\Admi
 	 *
 	 * @return void
 	 */
-	// public function __construct() {
-	// 	$this->middleware('auth');
-	// 	$this->config	= \aLTE::listLayout();
-	// 	$this->init		= \UI::initAdmin();
-	// }
+	public function __construct() {
+		$this->middleware('auth');
+		$this->config	= \aLTE::listLayout();
+		$this->init		= \UI::initAdmin();
+	}
 
 	public function index() {
 

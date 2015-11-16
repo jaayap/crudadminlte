@@ -62,12 +62,13 @@ class User extends Ardent implements AuthenticatableContract, AuthorizableContra
   //   return true;
   // }
 
-  // public function afterValidate() {
-  //   if ( sizeof($this->errors()) > 0 ) {
-  //     return back()->withErrors($this->errors());
-  //   };
-  //   return true;
-  // }
+  public function afterValidate() {
+    // \_e::prex($this->errors());
+    // if ( sizeof($this->errors()) > 0 ) {
+    //   return back()->withErrors($this->errors());
+    // };
+    // return true;
+  }
 
   /**
    * Triggered before saving the model.
@@ -93,14 +94,18 @@ class User extends Ardent implements AuthenticatableContract, AuthorizableContra
     Closure $afterSave = null
   ) {
 
-    $type = 'NEW';
-    if (request()->is('*/update/*'))
-      $type = 'UPDATE';
-    $v = \UI::getValidation($type, $this->id);
-    // \_e::prex( $v );
+    if (!request()->is('auth/*')) {
 
-    $rules = array_merge($rules, $v['validation']);
-    $customMessages = array_merge($rules, $v['messages']);
+      $type = 'UPDATE';
+      if (request()->is('*/add/*'))
+        $type = 'NEW';
+      $v = \UI::getValidation($type, $this->id);
+      // \_e::prex( $v );
+
+      $rules = array_merge($rules, $v['validation']);
+      $customMessages = array_merge($rules, $v['messages']);
+
+    };
 
     return parent::save($rules, $customMessages, $options, $beforeSave, $afterSave);
   }

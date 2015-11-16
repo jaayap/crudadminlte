@@ -14,9 +14,11 @@ class SystemController extends Controller {
 	 *
 	 * @return void
 	 */
-	// public function __construct() {
-	// 	$this->middleware('auth');
-	// }
+	public function __construct() {
+		$this->middleware('auth');
+		// $this->config	= \aLTE::listLayout();
+		// $this->init		= \UI::initAdmin();
+	}
 
 	public function index() {
 		return view('crudadminlte::admin.system.index');

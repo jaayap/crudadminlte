@@ -49,24 +49,24 @@
   <!-- Bootstrap File Style -->
   <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.filestyle') ) }}"></script>
 
-<!-- Vendor -->
+  <!-- Vendor -->
 
-  <!-- CK Editor -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.ckeditor') ) }}"></script>
-  <!-- ACE Cloud9 Editor -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.aceeditor') ) }}"></script>
-  <!-- Char Limiter -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.charlimit') ) }}"></script>
-  <!-- Float Table Head -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.floatthead') ) }}"></script>
-  <!-- Bootstrap Duallistbox -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.duallistbox') ) }}"></script>
-  <!-- Bootstrap Switch -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.bsswitch') ) }}"></script>
-  
-<!-- AdminLTE -->
+    <!-- CK Editor -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.ckeditor') ) }}"></script>
+    <!-- ACE Cloud9 Editor -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.aceeditor') ) }}"></script>
+    <!-- Char Limiter -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.charlimit') ) }}"></script>
+    <!-- Float Table Head -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.floatthead') ) }}"></script>
+    <!-- Bootstrap Duallistbox -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.duallistbox') ) }}"></script>
+    <!-- Bootstrap Switch -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.bsswitch') ) }}"></script>
 
-  <!-- AdminLTE App -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.adminlte') ) }}"></script>
-  <!-- Admin Global -->
-  <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.global') ) }}"></script>
+  <!-- AdminLTE -->
+
+    <!-- AdminLTE App -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.adminlte') ) }}"></script>
+    <!-- Admin Global -->
+    <script src="{{ asset( config('vendor.CrudAdminLte.adminltesource.scripts.global') ) }}"></script>

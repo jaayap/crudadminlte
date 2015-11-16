@@ -8,6 +8,17 @@ use Request, Validator, Route, Input;
 
 class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
 
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		$this->middleware('auth');
+		$this->config	= \aLTE::listLayout();
+		$this->init		= \UI::initAdmin();
+	}
+
 	public function index() {
 
 		$_config = $this->config;
@@ -126,5 +137,40 @@ class UserController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminCon
 	// 	};
 	//
 	// }
+
+	public function publish($id) {
+		$user = User::findOrFail($id);
+		if (!in_array($user->active, [0,1])) return true;
+		$user->active = !$user->active;
+		if ($user->updateUniques()) {
+			return redirect()->route('crud_admin_manageusers');
+		} else {
+			return redirect()->back()->withErrors($user->errors());
+		};
+	}
+
+	public function archive($id) {
+		die('..ARX');
+		$user = User::findOrFail($id);
+		if (!in_array($user->active, [0,1])) return true;
+		$user->active = 9;
+		if ($user->updateUniques()) {
+			return redirect()->route('crud_admin_manageusers');
+		} else {
+			return redirect()->back()->withErrors($user->errors());
+		};
+	}
+
+	public function destroy($id) {
+		die('..DEL');
+		$user = User::findOrFail($id);
+		if (!in_array($user->active, [0,1])) return true;
+		$user->active = -1;
+		if ($user->updateUniques()) {
+			return redirect()->route('crud_admin_manageusers');
+		} else {
+			return redirect()->back()->withErrors($user->errors());
+		};
+	}
 
 }

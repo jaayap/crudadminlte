@@ -15,7 +15,8 @@ class LayoutComposer
     {
       // Dependencies automatically resolved by service container...
       // \_e::pre( Session::get('_scripts') );
-      $this->_scripts = Session::get('_scripts');
+      $this->_sysScripts  = Session::get('_sysScripts');
+      $this->_scripts     = Session::get('_scripts');
     }
 
     /**
@@ -37,6 +38,10 @@ class LayoutComposer
      */
     public function compose(View $view)
     {
-      $view->with('_scripts', $this->_scripts);
+      // \_e::prex($this->_scripts);
+      $view
+        ->with('_sysScripts', $this->_sysScripts)
+        ->with('_scripts', $this->_scripts)
+        ;
     }
 }

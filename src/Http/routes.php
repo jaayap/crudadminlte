@@ -22,6 +22,22 @@
       'as'    => 'crud_admin'
 		]);
 
+    Route::group([
+				// 'namespace' => 'AJAX',
+				'prefix' => 'ajax',
+			], function() {
+
+      Route::get('systemwelcome', [
+        'uses'  => 'AjaxController@systemWelcome',
+        'as'    => 'crud_ajax_system_welcome'
+  		]);
+      Route::get('systemwelcomesecond', [
+        'uses'  => 'AjaxController@systemWelcomeSecond',
+        'as'    => 'crud_ajax_system_welcome_second'
+  		]);
+
+    });
+
 		Route::group([
 				'namespace' => 'ACL',
 				'prefix' => 'acl',

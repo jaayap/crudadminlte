@@ -98,21 +98,6 @@ class UIClass {
     return $return;
   }
 
-  public function _getUserGravatar() {
-
-    // $default    = urlencode(url('/profile/suvi_thammasarn-250x250.jpg'));
-    // $default  = '404';
-    $default  = 'mm';
-    // $default  = 'identicon';
-    // $default  = 'monsterid';
-    // $default  = 'wavatar';
-    // $default  = 'retro';
-    // $default  = 'blank';
-
-    $emailHash  = md5( strtolower( trim( Auth::user()->email ) ) );
-    return 'http://www.gravatar.com/avatar/'.$emailHash.'?r=pg&s=250&d='.$default;
-  }
-
   //---------------- LISTINGS
 
   public function drawListViewHeader($data) {
@@ -479,7 +464,7 @@ class UIClass {
 
   //---------------- VALIDATION
 
-  public function getValidation($type='NEW', $id=NULL) {
+  public function getValidation($type='UPDATE', $id=NULL) {
     $conf = \aLTE::listLayout();
     foreach ($conf['form'] as $a=>$fields) {
       // check if this is a TAB

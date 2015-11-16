@@ -8,6 +8,17 @@ use Route;
 
 class ACLController extends \Lab25\CrudAdminLte\Http\Controllers\Admin\AdminController {
 
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		$this->middleware('auth');
+		$this->config	= \aLTE::listLayout();
+		$this->init		= \UI::initAdmin();
+	}
+
 	public function index() {
 		return redirect()->action('Admin\ACL\ACLController@users');
 	}

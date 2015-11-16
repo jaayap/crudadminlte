@@ -8,6 +8,14 @@ use Session, Route, Redirect, Request, URL;
 
 class CrudController extends AdminController {
 
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	// public function __construct() {
+	// 	$this->middleware('auth');
+	// }
 
 	public function test() {
 		\_e::prex( Session::all() );
