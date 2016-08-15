@@ -1,6 +1,7 @@
 <?php namespace Lab25\CrudAdminLte\Http\Models;
 
-use Illuminate\Auth\Authenticatable;
+// use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -8,10 +9,10 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-use LaravelArdent\Ardent\Ardent;
+// use LaravelArdent\Ardent\Ardent;
 use DB, Hash;
 
-class User extends Ardent implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
+class User extends Authenticatable implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 
   use Authenticatable, Authorizable, CanResetPassword;
 
@@ -76,8 +77,6 @@ class User extends Ardent implements AuthenticatableContract, AuthorizableContra
    * @return true
    */
   public function beforeSave() {
-    // die('....FUCK');
-
     // if there's a new password, hash it
     // if ($this->isDirty('password')) {
     //   $this->password = Hash::make($this->password);
