@@ -20,7 +20,8 @@ class FormHelperClass {
     $_con   = explode('@',$control['controller']);
     $link   = action('\\'.$_con[0].'@publish', ( (isset($data) && $data->id != NULL ) ? $data->id : NULL ));
     $label  = (isset($action['label'])) ? $action['label']  : trans('crudadminlte::crud.buttons.'.$action['type'].'.label') ;
-    if ($data->$action['column'] == 1) {
+    if ($data[$action['column']] == 1) {
+    // if ($data->$action['column'] == 1) {
       $icon   = trans('crudadminlte::crud.buttons.PUBLISH.active.icon') ;
       $color  = trans('crudadminlte::crud.buttons.PUBLISH.active.color') ;
     } else {

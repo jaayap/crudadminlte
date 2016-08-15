@@ -120,7 +120,7 @@ class AdminLTEClass {
 
     if ($config['enabled'] === 1) {
       $emailHash  = md5( strtolower( trim( Auth::user()->email ) ) );
-      $url = 'http://www.gravatar.com/avatar/';
+      $url = '//www.gravatar.com/avatar/';
       $connected = @get_headers($url);
       if ($connected[0] == 'HTTP/1.0 200 OK') {
         $image = $url.$emailHash.'?r=pg&s=250&d='.$config['gravatarplaceholder'];
