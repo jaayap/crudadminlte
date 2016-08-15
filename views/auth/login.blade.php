@@ -41,7 +41,7 @@
 		<form role="form" method="POST" action="{{ route('crud_auth_check') }}" autocomplete="off">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			@if (count($errors) > 0)
+			@if (isset($errors) && count($errors) > 0)
 				<div class="alert alert-danger">
 					<strong>Whoops!</strong> There were some problems with your input.<br><br>
 					<ul>
