@@ -1,6 +1,6 @@
 # CrudAdminLTE
 
-Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.
+Laravel 5.x - CRUD boilerplate based on the AdminLTE theme.
 
 [![Latest Stable Version](https://poser.pugx.org/lab25/crudadminlte/v/stable)](https://packagist.org/packages/lab25/crudadminlte)
 [![Total Downloads](https://poser.pugx.org/lab25/crudadminlte/downloads)](https://packagist.org/packages/lab25/crudadminlte)
