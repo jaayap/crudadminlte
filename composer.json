@@ -1,7 +1,7 @@
 {
 	"name": "lab25/crudadminlte",
 	"type": "project",
-	"description": "Laravel 5.1 - CRUD boilerplate based on the AdminLTE theme.",
+	"description": "Laravel 5.x - CRUD boilerplate based on the AdminLTE theme.",
 	"keywords": [
 		"framework", "laravel", "AdminLTE", "laravel5", "CRUD", "admin"
 	],
@@ -13,7 +13,7 @@
 	}],
 	"require": {
 		"php": ">=5.5.9",
-		"laravel/framework": "5.1.*",
+		"laravel/framework": "5.*",
 		"illuminate/html": "5.0.*",
 		"laravelbook/ardent": "3.*"
 	},
