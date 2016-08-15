@@ -1,7 +1,6 @@
 <?php namespace Lab25\CrudAdminLte\Http\Models;
 
 use Illuminate\Auth\Authenticatable;
-// use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -12,7 +11,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 // use LaravelArdent\Ardent\Ardent;
 use DB, Hash;
 
-class User extends Authenticatable implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 
   use Authenticatable, Authorizable, CanResetPassword;
 
@@ -36,95 +35,6 @@ class User extends Authenticatable implements AuthenticatableContract, Authoriza
    * @var array
    */
   protected $hidden = ['password', 'remember_token'];
-
-  /**
-   * Settings defined for Ardent
-   *
-   * @var boolean
-   */
-  public $autoPurgeRedundantAttributes  = TRUE;
-  public $autoHydrateEntityFromInput    = TRUE;    // hydrates on new entries' validation
-  public $forceEntityHydrationFromInput = TRUE;
-  public static $throwOnFind = true;
-
-  public static $rules = array();
-  public static $customMessages = array();
-
-  // public function beforeValidate() {
-  //   $v = \UI::getValidation();
-  //   // \_e::prex( $v );
-  //
-  //   static::$rules = $v['validation'];
-  //   static::$customMessages = $v['messages'];
-  //
-  //   // \_e::pre( self::$rules );
-  //   // die('beforeValidate()');
-  //
-  //   return true;
-  // }
-
-  public function afterValidate() {
-    // \_e::prex($this->errors());
-    // if ( sizeof($this->errors()) > 0 ) {
-    //   return back()->withErrors($this->errors());
-    // };
-    // return true;
-  }
-
-  /**
-   * Triggered before saving the model.
-   *
-   * @return true
-   */
-  public function beforeSave() {
-    // if there's a new password, hash it
-    // if ($this->isDirty('password')) {
-    //   $this->password = Hash::make($this->password);
-    // };
-
-    return true;
-  }
-
-  public function save(
-    array $rules = array(),
-    array $customMessages = array(),
-    array $options = array(),
-    Closure $beforeSave = null,
-    Closure $afterSave = null
-  ) {
-
-    if (!request()->is('auth/*')) {
-
-      $type = 'UPDATE';
-      if (request()->is('*/add/*'))
-        $type = 'NEW';
-      $v = \UI::getValidation($type, $this->id);
-      // \_e::prex( $v );
-
-      $rules = array_merge($rules, $v['validation']);
-      $customMessages = array_merge($rules, $v['messages']);
-
-    };
-
-    return parent::save($rules, $customMessages, $options, $beforeSave, $afterSave);
-  }
-
-  /**
-   * Triggered after successfully saving the model.
-   *
-   * @return true
-   */
-  public function afterSave() {
-
-    \Msg::add('success', $this->name.'.');
-
-    // if there's a new password, hash it
-    // if ($this->isDirty('password')) {
-    //   $this->password = Hash::make($this->password);
-    // };
-
-    return true;
-  }
 
   /*---------------------------------------------------------------------------------*/
   public function setPasswordAttribute($value) {
