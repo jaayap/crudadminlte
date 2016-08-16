@@ -90,21 +90,21 @@
 
 		// Colour Picker
 		$('._colorpicker').colorpicker({
-      customClass: 'colorpicker-2x',
+			customClass: 'colorpicker-2x',
 			align: 'left',
-      sliders: {
-        saturation: {
-          maxLeft: 200,
-          maxTop: 200
-        },
-        hue: {
-          maxTop: 200
-        },
-        alpha: {
-          maxTop: 200
-        }
-      }
-    });
+			sliders: {
+				saturation: {
+					maxLeft: 200,
+					maxTop: 200
+				},
+				hue: {
+					maxTop: 200
+				},
+				alpha: {
+					maxTop: 200
+				}
+			}
+		});
 
 		// Bootstrap File Style
 		$('._filestyle').filestyle({
@@ -125,15 +125,17 @@
 				setTimeout(function(){
 					$('#_displayOption').find('button').trigger('click');
 				},10);
-	    } catch(ex) {
-        alert('An error occurred and I need to write some code to handle this!');
-	    }
-	    e.preventDefault();
+		    } catch(ex) {
+		        alert('An error occurred and I need to write some code to handle this!');
+		    }
+		    e.preventDefault();
 		});
 
 		$('table.table-fixed-head').floatThead({
-			scrollingTop: pageTop,
-			useAbsolutePositioning: false
+			// scrollingTop: pageTop,
+			// useAbsolutePositioning: false
+			position:'auto',
+			top: pageTop,
 		});
 
 		$('.alert-dismissable').delay(4000).animate({
